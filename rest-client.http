@@ -1,0 +1,26 @@
+GET http://localhost:3000
+
+### all songs
+Get http://localhost:3000/songs
+
+### single song
+Get http://localhost:3000/songs/1
+
+### add song
+Post http://localhost:3000/songs
+Content-Type: application/json
+
+{
+
+    "releaseDate": "2024-01-10",
+    "duration": "05:23",
+    "title": "song 2",
+    "artist": ["samyukth","saa"]
+}
+
+### update song
+Put http://localhost:3000/songs/1
+
+### delete song
+Delete http://localhost:3000/songs/1
+
