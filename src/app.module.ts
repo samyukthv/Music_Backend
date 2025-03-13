@@ -12,6 +12,8 @@ import { DevConfigService } from './common/providers/devConfigService';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { Song } from './songs/song.entity';
+import { User } from './users/users.entity';
+import { Artist } from './artists/artist.entity';
 
 @Module({
   imports: [
@@ -23,7 +25,7 @@ import { Song } from './songs/song.entity';
       port: 5432,
       username: 'postgres',
       password: 'Bluesky@124',
-      entities: [Song],
+      entities: [Song, User, Artist],
       synchronize: true,
     }),
   ],

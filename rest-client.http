@@ -1,10 +1,13 @@
 GET http://localhost:3000
 
+### all songs with pagination
+Get http://localhost:3000/songs/?page=1&limit=2
+
 ### all songs
 Get http://localhost:3000/songs
 
 ### single song
-Get http://localhost:3000/songs/1
+Get http://localhost:3000/songs/2
 
 ### add song
 Post http://localhost:3000/songs
@@ -12,16 +15,26 @@ Content-Type: application/json
 
 {
 
-    "releaseDate": "2024-01-10",
+    "releaseDate": "2025-02-11",
     "duration": "05:23",
     "title": "song 2",
     "artist": ["samyukth","saa"],
-    "lyrics": "song number 1" 
+    "lyrics": "song number 2" 
 }
 
 ### update song
-Put http://localhost:3000/songs/1
+Put http://localhost:3000/songs/3
+Content-Type: application/json
+
+{
+"title": "You for Me 29",
+"artists": ["Siagla", "Yan", "Ny"],
+"releaseDate": "2022-09-30",
+"duration": "02:45",
+"lyrics": "Sby, you're my adrenaline."
+}
+
 
 ### delete song
-Delete http://localhost:3000/songs/1
+Delete http://localhost:3000/songs/2
 

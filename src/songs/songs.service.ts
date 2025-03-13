@@ -1,8 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { Song } from './song.entity';
 import { CreateSongDTO } from 'src/dto/create-song-dto';
 import { InjectRepository } from '@nestjs/typeorm';
+import { UpdateSongDto } from 'src/dto/update-song-dto';
+import {
+  paginate,
+  Pagination,
+  IPaginationOptions,
+} from 'nestjs-typeorm-paginate';
 
 export interface SongType {
   title: string;
@@ -24,10 +30,28 @@ export class SongsService {
     song.duration = songDTO.duration;
     song.lyrics = songDTO.lyrics;
     song.releaseDate = songDTO.releaseDate;
-console.log(song,">>>song");
-
     return this.songsRepository.save(song);
   }
 
-  findAll() {}
+  findAll(): Promise<Song[]> {
+    return this.songsRepository.find();
+  }
+
+  findOne(id: number): Promise<Song | null> {
+    return this.songsRepository.findOneBy({ id });
+  }
+
+  remove(id: number): Promise<DeleteResult> {
+    return this.songsRepository.delete(id);
+  }
+
+  update(id: number, recordToUpdate: UpdateSongDto): Promise<UpdateResult> {
+    return this.songsRepository.update(id, recordToUpdate);
+  }
+
+  async paginate(options: IPaginationOptions): Promise<Pagination<Song>> {
+    const queryBuilder = this.songsRepository.createQueryBuilder('c');
+    queryBuilder.orderBy('c.releaseDate', 'DESC');
+    return paginate<Song>(queryBuilder, options);
+  }
 }
