@@ -9,9 +9,24 @@ import { AppService } from './app.service';
 import { SongsModule } from './songs/songs.module';
 import { LoggerMiddleware } from './common/middleware/logger.middleware';
 import { DevConfigService } from './common/providers/devConfigService';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { DataSource } from 'typeorm';
+import { Song } from './songs/song.entity';
 
 @Module({
-  imports: [SongsModule],
+  imports: [
+    SongsModule,
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      database: 'spotify-clone',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'Bluesky@124',
+      entities: [Song],
+      synchronize: true,
+    }),
+  ],
   controllers: [AppController],
   providers: [
     AppService,
@@ -22,6 +37,9 @@ import { DevConfigService } from './common/providers/devConfigService';
   ],
 })
 export class AppModule implements NestModule {
+  constructor(private dataSource: DataSource) {
+    console.log('DB name', dataSource.driver.database);
+  }
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(LoggerMiddleware).forRoutes('songs'); // option 1
     // consumer.apply(LoggerMiddleware).forRoutes({ path: 'songs', method: RequestMethod.POST }); // option 2

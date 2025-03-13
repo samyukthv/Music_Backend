@@ -15,7 +15,8 @@ Content-Type: application/json
     "releaseDate": "2024-01-10",
     "duration": "05:23",
     "title": "song 2",
-    "artist": ["samyukth","saa"]
+    "artist": ["samyukth","saa"],
+    "lyrics": "song number 1" 
 }
 
 ### update song
