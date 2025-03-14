@@ -9,6 +9,7 @@ import {
   Pagination,
   IPaginationOptions,
 } from 'nestjs-typeorm-paginate';
+import { Artist } from 'src/artists/artist.entity';
 
 export interface SongType {
   title: string;
@@ -21,15 +22,19 @@ export interface SongType {
 export class SongsService {
   constructor(
     @InjectRepository(Song) private songsRepository: Repository<Song>,
+    @InjectRepository(Artist) private artistRepository: Repository<Artist>,
   ) {}
 
-  create(songDTO: CreateSongDTO): Promise<Song> {
+  async create(songDTO: CreateSongDTO): Promise<Song> {
     const song = new Song();
     song.title = songDTO.title;
-    song.artists = songDTO.artist;
+    // song.artists = songDTO.artist;
     song.duration = songDTO.duration;
     song.lyrics = songDTO.lyrics;
     song.releaseDate = songDTO.releaseDate;
+    const artists = await this.artistRepository.findByIds(songDTO.artists);
+    song.artists = artists;
+
     return this.songsRepository.save(song);
   }
 
