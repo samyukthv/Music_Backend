@@ -14,6 +14,8 @@ import { DataSource } from 'typeorm';
 import { Song } from './songs/song.entity';
 import { User } from './users/users.entity';
 import { Artist } from './artists/artist.entity';
+import { AuthModule } from './auth/auth.module';
+import { Playlist } from './playlists/playlist.entity';
 
 @Module({
   imports: [
@@ -25,9 +27,10 @@ import { Artist } from './artists/artist.entity';
       port: 5432,
       username: 'postgres',
       password: 'Bluesky@124',
-      entities: [Song, User, Artist],
+      entities: [Song, User, Artist, Playlist],
       synchronize: true,
     }),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [
