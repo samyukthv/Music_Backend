@@ -16,10 +16,12 @@ import { User } from './users/users.entity';
 import { Artist } from './artists/artist.entity';
 import { AuthModule } from './auth/auth.module';
 import { Playlist } from './playlists/playlist.entity';
+import { PlayListModule } from './playlists/playlist.module';
 
 @Module({
   imports: [
     SongsModule,
+    PlayListModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       database: 'spotify-clone',

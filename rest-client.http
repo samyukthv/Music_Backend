@@ -38,3 +38,15 @@ Content-Type: application/json
 ### delete song
 Delete http://localhost:3000/songs/2
 
+
+### add playlist
+POST http://localhost:3000/playlists
+Content-Type: application/json
+
+{
+"name": "Feel Good Now",
+
+"songs": [6],
+"user": 1
+}
+
