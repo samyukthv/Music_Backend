@@ -50,3 +50,14 @@ Content-Type: application/json
 "user": 1
 }
 
+### user signup
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+"firstName": "samnew",
+"lastName": "vin new",
+"email": "sam111111@gmail.com",
+"password": "12345"
+}
+
