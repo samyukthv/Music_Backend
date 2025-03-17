@@ -22,7 +22,8 @@ export class PlayListsService {
     playList.songs = songs;
 
     const user = await this.userRepo.findOneBy({ id: playListDTO.user });
-    playList.user = user.id || 0;
+    if (!user) throw new Error('User not found');
+    playList.user = user;
 
     return this.playListRepo.save(playList);
   }
