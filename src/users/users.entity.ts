@@ -1,23 +1,12 @@
-import { Playlist } from 'src/playlists/playlist.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Exclude } from 'class-transformer';
+// import { Playlist } from 'src/playlists/playlist.entity';
+import { Column, Entity } from 'typeorm';
 
 @Entity('users')
 export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
-  firstName: string;
-
-  @Column()
-  lastName: string;
-
-  @Column()
+  @Column({ unique: true })
   email: string;
-
   @Column()
+  @Exclude()
   password: string;
-
-  @OneToMany(() => Playlist, (playList) => playList.user)
-  playList: Playlist[];
 }

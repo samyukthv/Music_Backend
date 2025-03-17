@@ -21,6 +21,7 @@ export class PlayListsService {
     const songs = await this.songsRepo.findByIds(playListDTO.songs);
     playList.songs = songs;
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const user = await this.userRepo.findOneBy({ id: playListDTO.user });
     if (!user) throw new Error('User not found');
     playList.user = user;

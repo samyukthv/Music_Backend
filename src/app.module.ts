@@ -22,6 +22,7 @@ import { PlayListModule } from './playlists/playlist.module';
   imports: [
     SongsModule,
     PlayListModule,
+    AuthModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       database: 'spotify-clone',
@@ -32,7 +33,6 @@ import { PlayListModule } from './playlists/playlist.module';
       entities: [Song, User, Artist, Playlist],
       synchronize: true,
     }),
-    AuthModule,
   ],
   controllers: [AppController],
   providers: [
