@@ -61,3 +61,13 @@ Content-Type: application/json
 "password": "12345"
 }
 
+### Login User
+
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+"email": "sam12@gmail.com",
+"password": "12345"
+}
+
