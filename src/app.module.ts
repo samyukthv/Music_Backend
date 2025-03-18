@@ -17,12 +17,20 @@ import { Artist } from './artists/artist.entity';
 import { AuthModule } from './auth/auth.module';
 import { Playlist } from './playlists/playlist.entity';
 import { PlayListModule } from './playlists/playlist.module';
+import { JwtModule } from '@nestjs/jwt';
+import { UsersModule } from './users/users.module';
+import { authConstants } from './auth/auth.constants';
 
 @Module({
   imports: [
     SongsModule,
     PlayListModule,
     AuthModule,
+    UsersModule,
+    JwtModule.register({
+      secret: authConstants.secret,
+      signOptions: { expiresIn: '1d' },
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       database: 'spotify-clone',
