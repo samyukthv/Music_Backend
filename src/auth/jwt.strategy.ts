@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { authConstants } from './auth.constants';
+import { payload } from './types';
 
 @Injectable()
 export class JWTStrategy extends PassportStrategy(Strategy) {
@@ -13,8 +14,11 @@ export class JWTStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  validate(payload: any) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-    return { userId: payload.id, email: payload.email };
+  validate(payload: payload) {
+    return {
+      userId: payload.id,
+      email: payload.email,
+      artistId: payload.artistId,
+    };
   }
 }

@@ -10,21 +10,22 @@ Get http://localhost:3000/songs
 Get http://localhost:3000/songs/2
 
 ### add song
-Post http://localhost:3000/songs
+POST http://localhost:3000/songs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbWFydEBnbWFpbC5jb20iLCJpZCI6NywiYXJ0aXN0SWQiOjIsImlhdCI6MTc0MjU0NDU1MSwiZXhwIjoxNzQyNjMwOTUxfQ.-FZ-2Y85IGRExygVjIpC0-apemZVZ1Oj128WNtcZr_4
 Content-Type: application/json
 
 {
-
-    "releaseDate": "2025-02-11",
+    "releaseDate": "2025-02-21",
     "duration": "05:23",
-    "title": "song 03",
-    "artists": [1,2],
-    "lyrics": "song number 03" 
+    "title": "sam Art song 2",
+    "artists": [1],
+    "lyrics": "bali bali"
 }
+
 
 ### update song
 Put http://localhost:3000/songs/3
-Content-Type: application/json
+Content-Type: application/json 
 
 {
 "title": "You for Me 29",
@@ -55,19 +56,18 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-"firstName": "samnew",
-"lastName": "vin new",
-"email": "sam111111@gmail.com",
+"firstName": "samArtist",
+"lastName": "vin",
+"email": "samart@gmail.com",
 "password": "12345"
 }
 
 ### Login User
-
 POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-"email": "sam12@gmail.com",
+"email": "samart@gmail.com",
 "password": "12345"
 }
 
@@ -75,5 +75,5 @@ Content-Type: application/json
 
 ### Profile
 GET http://localhost:3000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbTEyQGdtYWlsLmNvbSIsImlkIjo1LCJpYXQiOjE3NDI1Mzc1MzcsImV4cCI6MTc0MjYyMzkzN30.0ZUksyNipScPvmv_nqbtRNe_wgafZ8lJPz7KJ1y8eo4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbWFydEBnbWFpbC5jb20iLCJpZCI6NywiYXJ0aXN0SWQiOjIsImlhdCI6MTc0MjU0NTIwOCwiZXhwIjoxNzQyNjMxNjA4fQ.M5yGDNLm0SAl661NR_2GnxPEcBF6y076GG8oXOBnuMQ
 
