@@ -20,6 +20,7 @@ import { PlayListModule } from './playlists/playlist.module';
 import { JwtModule } from '@nestjs/jwt';
 import { UsersModule } from './users/users.module';
 import { authConstants } from './auth/auth.constants';
+import { ArtistsModule } from './artists/artists.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { authConstants } from './auth/auth.constants';
     PlayListModule,
     AuthModule,
     UsersModule,
+    ArtistsModule,
     JwtModule.register({
       secret: authConstants.secret,
       signOptions: { expiresIn: '1d' },

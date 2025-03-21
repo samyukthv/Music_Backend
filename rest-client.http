@@ -71,10 +71,9 @@ Content-Type: application/json
 "password": "12345"
 }
 
+// "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbTEyQGdtYWlsLmNvbSIsImlkIjo1LCJpYXQiOjE3NDI1Mzc0OTgsImV4cCI6MTc0MjYyMzg5OH0.ENGyPCMMTdC_Vw7WFGKmri7Iib9ARvnxafoJP-I8oos"
+
 ### Profile
 GET http://localhost:3000/profile
-Authorization: Bearer
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhhaWRlcl9hbGkzQGdtYWlsLmNvbSIs
-InN1YiI6NywiaWF0IjoxNjg0MjM3ODgzLCJleHAiOjE2ODQzMjQyODN9.DztMDAKZOnQjZPFkFPiWiJUm
-I_VnrNfNvfwPI0yJ8MA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbTEyQGdtYWlsLmNvbSIsImlkIjo1LCJpYXQiOjE3NDI1Mzc1MzcsImV4cCI6MTc0MjYyMzkzN30.0ZUksyNipScPvmv_nqbtRNe_wgafZ8lJPz7KJ1y8eo4
 
