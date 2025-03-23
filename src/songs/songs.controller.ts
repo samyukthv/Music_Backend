@@ -56,7 +56,6 @@ export class SongsController {
   @Post()
   @UseGuards(artistJwtGuard)
   create(@Body() creatSongDTO: CreateSongDTO, @Request() req): Promise<Song> {
-    console.log(req.user, '>>>>req.user');
     return this.songsService.create(creatSongDTO);
   }
 

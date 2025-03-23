@@ -67,7 +67,7 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-"email": "samart@gmail.com",
+"email": "sam11@gmail.com",
 "password": "12345"
 }
 
@@ -77,3 +77,10 @@ Content-Type: application/json
 GET http://localhost:3000/profile
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbWFydEBnbWFpbC5jb20iLCJpZCI6NywiYXJ0aXN0SWQiOjIsImlhdCI6MTc0MjU0NTIwOCwiZXhwIjoxNzQyNjMxNjA4fQ.M5yGDNLm0SAl661NR_2GnxPEcBF6y076GG8oXOBnuMQ
 
+
+
+
+
+### Enable 2FA Authentication
+POST http://localhost:3000/auth/enable-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbTExQGdtYWlsLmNvbSIsImlkIjo0LCJpYXQiOjE3NDI3MjY3NzQsImV4cCI6MTc0MjgxMzE3NH0.rOHLylmfngLi82ddmPrSKBfKWqvNb0Ih_LsBYyWAT0U
