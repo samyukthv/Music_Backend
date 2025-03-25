@@ -51,4 +51,25 @@ export class AuthService {
     await this.userService.updateSecretKey(user.id, user.twoFASecret);
     return { secret: user.twoFASecret };
   }
+
+  async validate2FA(
+    userId: number,
+    token: string,
+  ): Promise<{ verified: boolean }> {
+    try {
+      const user = await this.userService.findById(userId);
+
+      const verified = speakeasy.totp.verify({
+        secret: user?.twoFASecret || '',
+        token: token,
+        encoding: 'base32',
+      });
+
+      if (verified) return { verified: true };
+      else return { verified: false };
+    } catch (err) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      throw new UnauthorizedException('Error verifying token', err);
+    }
+  }
 }
