@@ -34,4 +34,14 @@ export class UsersService {
       { twoFASecret: secret, enable2FA: true },
     );
   }
+
+  disable2FA(userId: number): Promise<UpdateResult> {
+    return this.userRepo.update(
+      { id: userId },
+      {
+        enable2FA: false,
+        twoFASecret: null,
+      },
+    );
+  }
 }

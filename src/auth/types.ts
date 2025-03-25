@@ -5,5 +5,5 @@ export interface payload {
 }
 
 export type Enable2FAType = {
-  secret: string;
+  secret: string | null;
 };

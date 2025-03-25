@@ -94,3 +94,9 @@ Content-Type: application/json
 {
   "token": "743147"
 }
+
+
+### Disable 2FA Authentication
+GET  http://localhost:3000/auth/disable-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbTExQGdtYWlsLmNvbSIsImlkIjo0LCJpYXQiOjE3NDI5MDQzNjksImV4cCI6MTc0Mjk5MDc2OX0.I_ySBeYnhEM82AAvcDmBhA5iXzm8vK4_W9rBdMxBZlA
+

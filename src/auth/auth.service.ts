@@ -7,6 +7,7 @@ import { JwtService } from '@nestjs/jwt';
 import { ArtistsService } from 'src/artists/artists.service';
 import { Enable2FAType, payload } from './types';
 import * as speakeasy from 'speakeasy';
+import { UpdateResult } from 'typeorm';
 
 @Injectable()
 export class AuthService {
@@ -71,5 +72,9 @@ export class AuthService {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       throw new UnauthorizedException('Error verifying token', err);
     }
+  }
+
+  disable2FA(userId: number): Promise<UpdateResult> {
+    return this.userService.disable2FA(userId);
   }
 }

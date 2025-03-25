@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Request, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
 import { CreateUserDTO } from 'src/dto/create-user-dto';
 import { LoginDTO } from 'src/dto/login-dto';
 import { User } from 'src/users/users.entity';
@@ -7,6 +7,7 @@ import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-guard';
 import { Enable2FAType } from './types';
 import { validateTokenDTO } from 'src/dto/validate-token-dto';
+import { UpdateResult } from 'typeorm';
 
 @Controller('auth')
 export class AuthController {
@@ -45,5 +46,14 @@ export class AuthController {
       req.user.userId,
       validateTokenDTO.token,
     );
+  }
+
+  @Get('disable-2fa')
+  @UseGuards(JwtAuthGuard)
+  disable2FA(
+    @Request()
+    req,
+  ): Promise<UpdateResult> {
+    return this.authService.disable2FA(req.user.userId);
   }
 }
