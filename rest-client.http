@@ -83,7 +83,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbWFyd
 
 ### Enable 2FA Authentication
 POST http://localhost:3000/auth/enable-2fa
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbTExQGdtYWlsLmNvbSIsImlkIjo0LCJpYXQiOjE3NDI5MDQzNjksImV4cCI6MTc0Mjk5MDc2OX0.I_ySBeYnhEM82AAvcDmBhA5iXzm8vK4_W9rBdMxBZlA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbTExQGdtYWlsLmNvbSIsImlkIjo0LCJpYXQiOjE3NDUxMzM4ODEsImV4cCI6MTc0NTIyMDI4MX0.Nj5oIWp55In3n1ahB5GjoNOI8OxdF7RtXqxv4Ikw1n8
 
 
 ### Verify 2FA Authentication
@@ -98,5 +98,5 @@ Content-Type: application/json
 
 ### Disable 2FA Authentication
 GET  http://localhost:3000/auth/disable-2fa
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbTExQGdtYWlsLmNvbSIsImlkIjo0LCJpYXQiOjE3NDI5MDQzNjksImV4cCI6MTc0Mjk5MDc2OX0.I_ySBeYnhEM82AAvcDmBhA5iXzm8vK4_W9rBdMxBZlA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbTExQGdtYWlsLmNvbSIsImlkIjo0LCJpYXQiOjE3NDUxMzM4ODEsImV4cCI6MTc0NTIyMDI4MX0.Nj5oIWp55In3n1ahB5GjoNOI8OxdF7RtXqxv4Ikw1n8
 

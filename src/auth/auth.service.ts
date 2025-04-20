@@ -21,7 +21,11 @@ export class AuthService {
     private artistservice: ArtistsService,
   ) {}
 
-  async login(loginDTO: LoginDTO): Promise<{ accessToken: string }> {
+  async login(
+    loginDTO: LoginDTO,
+  ): Promise<
+    { accessToken: string } | { validate2FA: string; message: string }
+  > {
     const user = await this.userService.findOne(loginDTO);
     if (!user) {
       throw new UnauthorizedException('User not found');
@@ -40,6 +44,13 @@ export class AuthService {
       const payload: payload = { email: user.email, id: user.id };
       const artist = await this.artistservice.findArtists(user.id);
       if (artist) payload.artistId = artist.id;
+      if (user.enable2FA && user.twoFASecret) {
+        return {
+          validate2FA: 'http://localhost:3000/auth/validate-2fa',
+          message:
+            'Please send the one-time password/token from your Google Authenticator App',
+        };
+      }
       return { accessToken: this.jwtService.sign(payload) };
     } else {
       throw new UnauthorizedException('Password does not match');
