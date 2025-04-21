@@ -50,4 +50,8 @@ export class UsersService {
       },
     );
   }
+
+  async findByApiKey(apiKey: string): Promise<User | null> {
+    return this.userRepo.findOneBy({ apiKey });
+  }
 }

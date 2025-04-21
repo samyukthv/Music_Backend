@@ -56,9 +56,9 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-"firstName": "samyukth",
+"firstName": "sam1",
 "lastName": "vinod",
-"email": "samyukthvinod@gmail.com",
+"email": "sam1@gmail.com",
 "password": "1234"
 }
 
@@ -75,7 +75,7 @@ Content-Type: application/json
 
 ### Profile
 GET http://localhost:3000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbWFydEBnbWFpbC5jb20iLCJpZCI6NywiYXJ0aXN0SWQiOjIsImlhdCI6MTc0MjU0NTIwOCwiZXhwIjoxNzQyNjMxNjA4fQ.M5yGDNLm0SAl661NR_2GnxPEcBF6y076GG8oXOBnuMQ
+Authorization: Bearer 5666ee76-b0cb-40a1-8676-b1014f938e91
 
 
 

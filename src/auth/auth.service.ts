@@ -15,6 +15,9 @@ import { UpdateResult } from 'typeorm';
 
 @Injectable()
 export class AuthService {
+  validateUserByApiKey(apiKey: string): Promise<User | null> {
+    return this.userService.findByApiKey(apiKey);
+  }
   constructor(
     private userService: UsersService,
     private jwtService: JwtService,
