@@ -5,17 +5,23 @@ import { Repository, UpdateResult } from 'typeorm';
 import { CreateUserDTO } from 'src/dto/create-user-dto';
 import * as bcrypt from 'bcrypt';
 import { LoginDTO } from 'src/dto/login-dto';
+import { v4 as uuid4 } from 'uuid';
 
 @Injectable()
 export class UsersService {
   constructor(@InjectRepository(User) private userRepo: Repository<User>) {}
 
   async create(userDTO: CreateUserDTO): Promise<User> {
+    const user = new User();
+    user.firstName = userDTO.firstName;
+    user.lastName = userDTO.lastName;
+    user.email = userDTO.email;
+    user.apiKey = uuid4();
     const salt = bcrypt.genSaltSync(10);
-    userDTO.password = await bcrypt.hash(userDTO.password, salt);
-    const user = await this.userRepo.save(userDTO);
-    delete (user as Partial<User>).password;
-    return user;
+    user.password = await bcrypt.hash(userDTO.password, salt);
+    const savedUser = await this.userRepo.save(user);
+    delete (savedUser as Partial<User>).password;
+    return savedUser;
   }
 
   async findOne(data: LoginDTO): Promise<User> {
