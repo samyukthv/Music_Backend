@@ -11,16 +11,17 @@ import { LoggerMiddleware } from './common/middleware/logger.middleware';
 import { DevConfigService } from './common/providers/devConfigService';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
-import { Song } from './songs/song.entity';
-import { User } from './users/users.entity';
-import { Artist } from './artists/artist.entity';
+// import { Song } from './songs/song.entity';
+// import { User } from './users/users.entity';
+// import { Artist } from './artists/artist.entity';
 import { AuthModule } from './auth/auth.module';
-import { Playlist } from './playlists/playlist.entity';
+// import { Playlist } from './playlists/playlist.entity';
 import { PlayListModule } from './playlists/playlist.module';
 import { JwtModule } from '@nestjs/jwt';
 import { UsersModule } from './users/users.module';
 import { authConstants } from './auth/auth.constants';
 import { ArtistsModule } from './artists/artists.module';
+import { dataSourceOptions } from 'db/data-source';
 
 @Module({
   imports: [
@@ -33,16 +34,7 @@ import { ArtistsModule } from './artists/artists.module';
       secret: authConstants.secret,
       signOptions: { expiresIn: '1d' },
     }),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      database: 'spotify-clone-02',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'Bluesky@124',
-      entities: [Song, User, Artist, Playlist],
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(dataSourceOptions),
   ],
   controllers: [AppController],
   providers: [
